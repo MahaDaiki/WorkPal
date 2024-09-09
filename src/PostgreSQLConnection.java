@@ -14,7 +14,7 @@ public class PostgreSQLConnection {
             Class.forName("org.postgresql.Driver");
 
             conn = DriverManager.getConnection(url, user, password);
-            System.out.println("Connexion réussie à la base de données!");
+            System.out.println("Connexion réussie à la base de données PostgreSQL!");
 
         } catch (Exception e) {
             e.printStackTrace();
