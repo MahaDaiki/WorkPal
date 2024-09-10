@@ -1,6 +1,7 @@
 package repositories.Implementation;
 
-import entity.User;
+import config.DatabaseConnection;
+import entities.User;
 import repositories.Interface.UserRepository;
 
 import java.sql.Connection;
@@ -10,7 +11,7 @@ import java.util.Optional;
 
 public class UserRepositoryImpl implements UserRepository {
 
-    private final Connection connection = config.DatabaseConnection.getInstance().getConnection();
+    private final Connection connection = DatabaseConnection.getInstance().getConnection();
 
     @Override
     public void save(User user) {

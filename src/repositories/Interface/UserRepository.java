@@ -1,6 +1,6 @@
 package repositories.Interface;
 
-import entity.User;
+import entities.User;
 
 import java.util.Optional;
 
