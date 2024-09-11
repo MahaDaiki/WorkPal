@@ -44,7 +44,7 @@ public class GestionnaireDespacesRepositoryImpl implements GestionnaireDespacesR
             stmt.setString(5, GestionnaireDespaces.getPassword());  // you should hash it
             stmt.setString(6, GestionnaireDespaces.getRole().name());
             stmt.executeUpdate();
-            System.out.println("Gestionnaire D'espaces registered successfully!");
+            System.out.println("Done!");
         } catch (SQLException e) {
             e.printStackTrace();
         }

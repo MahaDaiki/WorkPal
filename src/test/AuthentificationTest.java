@@ -114,7 +114,28 @@ public class AuthentificationTest {
 
     private static void displayMemberMenu() {
 
-        System.out.println("Member Menu:");
+
+
+        while (true) {
+            System.out.println("Member Menu:");
+            System.out.println("1. Modify Profile");
+            System.out.println("2. Logout");
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    MemberManagementTest.modifyProfile();
+                    break;
+                case 2:
+                    System.out.println("Logging out...");
+//                    authService.logout();
+                    return;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+        }
 
     }
     }
