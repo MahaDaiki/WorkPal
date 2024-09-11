@@ -6,8 +6,8 @@ public class Admin extends User {
 
     private int admin_id;
 
-    public Admin(String name, String email, String phone_number, String adresse, String password, Role role) {
-        super(name, email, phone_number, adresse, password, Role.ADMIN);
+    public Admin(String name, String email, String phone_number, String address, String password) {
+        super(name, email, phone_number, address, password, Role.admin);
     }
 
 
@@ -27,7 +27,7 @@ public class Admin extends User {
                 ", name='" + getName() + '\'' +
                 ", email='" + getEmail() + '\'' +
                 ", phone_number='" + getPhone_number() + '\'' +
-                ", adresse='" + getAdresse() + '\'' +
+                ", address='" + getAddress() + '\'' +
                 ", password='" + getPassword() + '\'' +
                 ", role=" + getRole() +
                 '}';

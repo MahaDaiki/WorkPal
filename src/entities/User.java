@@ -8,15 +8,16 @@ public class User {
     private String name;
     private String email;
     private String phone_number;
-    private String adresse;
+    private String address;
     private String password;
     private Role role;
 
-    public User(String name, String email, String phone_number, String adresse, String password, Role role) {
+    public User(int user_id,String name, String email, String phone_number, String address, String password, Role role) {
+        this.user_id = user_id;
         this.name = name;
         this.email = email;
         this.phone_number = phone_number;
-        this.adresse = adresse;
+        this.address = address;
         this.password = password;
         this.role = role;
     }
@@ -54,12 +55,12 @@ public class User {
         this.phone_number = phone_number;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getPassword() {
@@ -85,9 +86,11 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", phone_number='" + phone_number + '\'' +
-                ", adresse='" + adresse + '\'' +
+                ", address='" + address + '\'' +
                 ", password='" + password + '\'' +
                 ", role=" + role +
                 '}';
     }
+
+
 }

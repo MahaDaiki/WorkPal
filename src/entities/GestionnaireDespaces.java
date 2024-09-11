@@ -6,8 +6,8 @@ public class GestionnaireDespaces extends User {
 
     private int gestionnaire_id;
 
-    public GestionnaireDespaces(String name, String email, String phone_number, String adresse, String password, Role role) {
-        super(name, email, phone_number, adresse, password, Role.GESTIONNAIRE);
+    public GestionnaireDespaces(String name, String email, String phone_number, String address, String password) {
+        super(name, email, phone_number, address, password, Role.gestionnaire);
     }
 
 
@@ -27,7 +27,7 @@ public class GestionnaireDespaces extends User {
                 ", name='" + getName() + '\'' +
                 ", email='" + getEmail() + '\'' +
                 ", phone_number='" + getPhone_number() + '\'' +
-                ", adresse='" + getAdresse() + '\'' +
+                ", address='" + getAddress() + '\'' +
                 ", password='" + getPassword() + '\'' +
                 ", role=" + getRole() +
                 '}';

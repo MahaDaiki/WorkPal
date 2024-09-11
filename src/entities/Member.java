@@ -7,8 +7,8 @@ public class Member extends User {
     private int member_id;
     private int abonnement_id;
 
-    public Member(String name, String email, String phone_number, String adresse, String password, Role role, int abonnement_id) {
-        super(name, email, phone_number, adresse, password, Role.MEMBER);
+    public Member(String name, String email, String phone_number, String address, String password,int abonnement_id) {
+        super(name, email, phone_number, address, password, Role.member);
         this.abonnement_id = abonnement_id;
     }
 
@@ -38,7 +38,7 @@ public class Member extends User {
                 ", name='" + getName() + '\'' +
                 ", email='" + getEmail() + '\'' +
                 ", phone_number='" + getPhone_number() + '\'' +
-                ", adresse='" + getAdresse() + '\'' +
+                ", address='" + getAddress() + '\'' +
                 ", password='" + getPassword() + '\'' +
                 ", role=" + getRole() +
                 '}';
