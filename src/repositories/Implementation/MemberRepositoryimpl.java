@@ -42,11 +42,12 @@ public class MemberRepositoryimpl implements MemberRepository {
             stmt.setString(6, member.getRole().name());
             stmt.executeUpdate();
 
-            System.out.println("member registered successfully!");
+            System.out.println("Done!");
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
+
     }
 
