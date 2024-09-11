@@ -29,7 +29,6 @@ public class UserRepositoryImpl implements UserRepository {
                     String storedPassword = rs.getString("password");
                     if (password.equals(storedPassword)) {
                         currentUser = new User(
-                                rs.getInt("user_id"),
                                 rs.getString("name"),
                                 rs.getString("email"),
                                 rs.getString("phone_number"),
@@ -37,7 +36,7 @@ public class UserRepositoryImpl implements UserRepository {
                                 rs.getString("password"),
                                 Role.valueOf(rs.getString("role"))
                         );
-                        return true;  // Login successful
+                        return true;
                     }
                 }
             }
@@ -51,4 +50,8 @@ public class UserRepositoryImpl implements UserRepository {
     public void logout() {
         currentUser = null;
     }
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
 }
