@@ -9,6 +9,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository = new UserRepositoryImpl();
     @Override
     public boolean updateUser(User user) {
+
         return userRepository.updateUser(user);
     }
 
