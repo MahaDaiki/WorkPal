@@ -8,7 +8,8 @@ public class Espace {
     private boolean disponibilite;
     private String taille;
 
-    public Espace(String name, String type, boolean disponibilite, String taille) {
+    public Espace(int espaceId, String name, String type, boolean disponibilite, String taille) {
+       this.espace_id = espaceId;
         this.name = name;
         this.type = type;
         this.disponibilite = disponibilite;
@@ -45,6 +46,7 @@ public class Espace {
     }
 
     public void setDisponibilite(boolean disponibilite) {
+
         this.disponibilite = disponibilite;
     }
 
@@ -53,6 +55,7 @@ public class Espace {
     }
 
     public void setTaille(String taille) {
+
         this.taille = taille;
     }
 
