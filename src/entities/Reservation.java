@@ -7,6 +7,7 @@ public class Reservation {
     private int reservation_id;
     private Timestamp date_debut;
     private Timestamp date_fin;
+    private int prix_total;
     private int membre_id;
     private int espace_id;
     private int suplservice_id;
@@ -15,9 +16,10 @@ public class Reservation {
     private boolean favoris;
 
 
-    public Reservation(Timestamp date_debut, Timestamp date_fin, int membre_id, int espace_id, int suplservice_id, int rating, String note, boolean favoris) {
+    public Reservation(Timestamp date_debut, Timestamp date_fin, int prix_total,int membre_id, int espace_id, int suplservice_id, int rating, String note, boolean favoris) {
         this.date_debut = date_debut;
         this.date_fin = date_fin;
+        this.prix_total = prix_total;
         this.membre_id = membre_id;
         this.espace_id = espace_id;
         this.suplservice_id = suplservice_id;
@@ -98,8 +100,14 @@ public class Reservation {
     public void setFavoris(boolean favoris) {
         this.favoris = favoris;
     }
+    public int getPrix_total() {
+        return prix_total;
+    }
 
-    // toString method
+    public void setPrix_total(int prix_total) {
+        this.prix_total = prix_total;
+    }
+
     @Override
     public String toString() {
         return "Reservation{" +
@@ -114,4 +122,6 @@ public class Reservation {
                 ", favoris=" + favoris +
                 '}';
     }
+
+
 }

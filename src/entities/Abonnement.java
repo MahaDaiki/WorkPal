@@ -7,10 +7,12 @@ public class Abonnement {
     private int abonnement_id;
     private LocalDate date_debut;
     private LocalDate date_fin;
+    private int prix;
 
-    public Abonnement(LocalDate date_debut, LocalDate date_fin) {
+    public Abonnement(LocalDate date_debut, LocalDate date_fin, int prix) {
         this.date_debut = date_debut;
         this.date_fin = date_fin;
+        this.prix = prix;
     }
 
 
@@ -38,6 +40,13 @@ public class Abonnement {
         this.date_fin = date_fin;
     }
 
+    public int getPrix() {
+        return prix;
+    }
+
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
     @Override
     public String toString() {
         return "Abonnement{" +
@@ -46,4 +55,6 @@ public class Abonnement {
                 ", date_fin=" + date_fin +
                 '}';
     }
+
+
 }

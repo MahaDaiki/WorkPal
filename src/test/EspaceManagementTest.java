@@ -19,11 +19,11 @@ public class EspaceManagementTest {
     private static final GestionnaireDespacesService gestionnaireRepo = new GestionnairedespaceServiceImpl();
 
     public static void main(String[] args) {
-        // Retrieve user and gestionnaire ID once in main()
+
         int userId = authService.getCurrentUser().getUser_id();
         int gestionnaireId = gestionnaireRepo.getGestionnaireIdByUserId(userId);
 
-        // Check if the gestionnaireId is valid
+
         if (gestionnaireId == -1) {
             System.out.println("Error: No gestionnaire found for the current user.");
             return;
@@ -45,6 +45,7 @@ public class EspaceManagementTest {
         System.out.println("Available Espaces:");
         int index = 1;
         for (Espace espace : espaces) {
+            System.out.println(index + ". " + espace.getEspace_id());
             System.out.println(index + ". " + espace.getName());
             index++;
         }
@@ -82,9 +83,11 @@ public class EspaceManagementTest {
         String type = scanner.nextLine();
         System.out.println("Enter Espace Size: ");
         String taille = scanner.nextLine();
+        System.out.println("Enter price: ");
+        int prix = scanner.nextInt();
 
-        // Create a new Espace object with the gestionnaireId
-        Espace newEspace = new Espace(name, type, true, taille, gestionnaireId);
+
+        Espace newEspace = new Espace(0,name, type, true, taille, prix ,gestionnaireId);
 
         if (espaceService.addEspace(newEspace, gestionnaireId)) {
             System.out.println("Espace added successfully.");
@@ -102,7 +105,7 @@ public class EspaceManagementTest {
             System.out.println("Invalid selection.");
             return;
         }
-
+//        System.out.println(selectedEspace);
         Espace espaceToModify = espaces.get(selectedEspace - 1);
 
         System.out.println("Enter new name (current: " + espaceToModify.getName() + "): ");
@@ -111,15 +114,19 @@ public class EspaceManagementTest {
         String newType = scanner.nextLine();
         System.out.println("Enter new size (current: " + espaceToModify.getTaille() + "): ");
         String newSize = scanner.nextLine();
+        System.out.println("Enter new size (current: " + espaceToModify.getPrix() + "): ");
+       int newPrice = scanner.nextInt();
 
         espaceToModify.setName(newName);
         espaceToModify.setType(newType);
         espaceToModify.setTaille(newSize);
+        espaceToModify.setPrix(newPrice);
 
         if (espaceService.updateEspace(espaceToModify, gestionnaireId)) {
             System.out.println("Espace updated successfully.");
         } else {
             System.out.println("Failed to update Espace.");
+            System.out.println(espaceToModify.toString());
         }
     }
 

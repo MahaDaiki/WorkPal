@@ -18,13 +18,15 @@ public class EspaceRepositoryImpl implements EspaceRepository {
 
     @Override
     public boolean addEspace(Espace espace, int gestionnaireId) {
-        String query = "INSERT INTO espace (name, type, disponibilite, taille, gestionnaire_id) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO espace (name, type, disponibilite, taille, prix,gestionnaire_id) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, espace.getName());
             stmt.setString(2, espace.getType());
             stmt.setBoolean(3, espace.isDisponibilite());
             stmt.setString(4, espace.getTaille());
-            stmt.setInt(5, gestionnaireId);
+            stmt.setInt(5, espace.getPrix());
+            stmt.setInt(6, gestionnaireId);
+
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -34,14 +36,18 @@ public class EspaceRepositoryImpl implements EspaceRepository {
 
     @Override
     public boolean updateEspace(Espace espace, int gestionnaireId) {
-        String query = "UPDATE espace SET name = ?, type = ?, disponibilite = ?, taille = ? WHERE espace_id = ? AND gestionnaire_id = ?";
+        String query = "UPDATE espace SET name = ?, type = ?, disponibilite = ?, taille = ?, prix = ? WHERE espace_id = ? AND gestionnaire_id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, espace.getName());
             stmt.setString(2, espace.getType());
             stmt.setBoolean(3, espace.isDisponibilite());
             stmt.setString(4, espace.getTaille());
             stmt.setInt(5, espace.getEspace_id());
-            stmt.setInt(6, espace.Gestionnaire_id);
+            stmt.setInt(6, gestionnaireId);
+            stmt.setInt(7, espace.getPrix());
+
+
+
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -71,12 +77,13 @@ public class EspaceRepositoryImpl implements EspaceRepository {
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
                     Espace espace = new Espace(
-
+                            rs.getInt("espace_id"),
                             rs.getString("name"),
                             rs.getString("type"),
                             rs.getBoolean("disponibilite"),
                             rs.getString("taille"),
-                            rs.getInt("gestionnaire_id")
+                            rs.getInt("gestionnaire_id"),
+                            rs.getInt("prix")
                     );
                     espaces.add(espace);
                 }
@@ -97,12 +104,13 @@ public class EspaceRepositoryImpl implements EspaceRepository {
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
                     Espace espace = new Espace(
-
+                            rs.getInt("espace_id"),
                             rs.getString("name"),
                             rs.getString("type"),
                             rs.getBoolean("disponibilite"),
                             rs.getString("taille"),
-                            rs.getInt("gestionnaire_id")
+                            rs.getInt("gestionnaire_id"),
+                            rs.getInt("prix")
                     );
                     espaces.add(espace);
                 }
