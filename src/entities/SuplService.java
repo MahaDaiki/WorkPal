@@ -59,13 +59,7 @@ public class SuplService {
     }
 
 
-    public int getPrix() {
-        return prix;
-    }
 
-    public void setPrix(int prix) {
-        this.prix = prix;
-    }
 
     @Override
     public String toString() {

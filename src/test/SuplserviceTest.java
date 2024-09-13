@@ -102,7 +102,7 @@ public class SuplserviceTest {
         String newDetails = scanner.nextLine();
         System.out.println("Enter new Suplservice Price (current: " + suplserviceToModify.getPrix() + "): ");
         int newPrice = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
 
         suplserviceToModify.setType(newType);
         suplserviceToModify.setDetails(newDetails);
@@ -120,7 +120,7 @@ public class SuplserviceTest {
 
         System.out.println("Enter the ID of the Suplservice you want to delete: ");
         int suplserviceId = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
 
         if (suplservice.deleteSuplservice(suplserviceId, gestionnaireId)) {
             System.out.println("Suplservice deleted successfully.");
