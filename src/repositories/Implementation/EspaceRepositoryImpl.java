@@ -41,7 +41,9 @@ public class EspaceRepositoryImpl implements EspaceRepository {
             stmt.setBoolean(3, espace.isDisponibilite());
             stmt.setString(4, espace.getTaille());
             stmt.setInt(5, espace.getEspace_id());
-            stmt.setInt(6, espace.Gestionnaire_id);
+            stmt.setInt(6, gestionnaireId);
+
+
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -71,7 +73,7 @@ public class EspaceRepositoryImpl implements EspaceRepository {
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
                     Espace espace = new Espace(
-
+                            rs.getInt("espace_id"),
                             rs.getString("name"),
                             rs.getString("type"),
                             rs.getBoolean("disponibilite"),
@@ -97,7 +99,7 @@ public class EspaceRepositoryImpl implements EspaceRepository {
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
                     Espace espace = new Espace(
-
+                            rs.getInt("espace_id"),
                             rs.getString("name"),
                             rs.getString("type"),
                             rs.getBoolean("disponibilite"),

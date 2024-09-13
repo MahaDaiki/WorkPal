@@ -11,7 +11,8 @@ public class Espace {
     private int gestionnaire_id;
 
 
-    public Espace( String name, String type, boolean disponibilite, String taille ,int gestionnaire_id) {
+    public Espace(int espace_id , String name, String type, boolean disponibilite, String taille ,int gestionnaire_id) {
+        this.espace_id = espace_id;
         this.name = name;
         this.type = type;
         this.disponibilite = disponibilite;
