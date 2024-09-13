@@ -5,9 +5,11 @@ import entities.Member;
 import enums.Role;
 import services.Implementation.AdminServiceImpl;
 import services.Implementation.AuthetificationServiceImpl;
+import services.Implementation.GestionnairedespaceServiceImpl;
 import services.Interfaces.AdminService;
 import services.Interfaces.AuthentificationService;
 import entities.User;
+import services.Interfaces.GestionnaireDespacesService;
 
 import java.util.Scanner;
 
@@ -15,7 +17,9 @@ public class AuthentificationTest {
     AdminService adminService = new AdminServiceImpl();
     private static final AuthentificationService authService = new AuthetificationServiceImpl();
     private static final Scanner scanner = new Scanner(System.in);
+    private static final GestionnaireDespacesService gestionnaireRepo = new GestionnairedespaceServiceImpl();
     public static void main(String[] args) {
+
         while (true) {
             System.out.println("1. Register Member");
             System.out.println("2. Login");
@@ -110,6 +114,29 @@ public class AuthentificationTest {
 
         System.out.println("Gestionnaire Menu:");
 
+        while (true) {
+            System.out.println("----Member Menu:----");
+            System.out.println("1. Manage Espace");
+            System.out.println("2. Logout");
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    int userId = authService.getCurrentUser().getUser_id();
+                    int gestionnaireId = gestionnaireRepo.getGestionnaireIdByUserId(userId);
+             EspaceManagementTest.displayEspaceMenu(gestionnaireId);;
+                    break;
+                case 2:
+                    System.out.println("Logging out...");
+//                    authService.logout();
+                    return;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+
+        }
     }
 
     private static void displayMemberMenu() {

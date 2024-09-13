@@ -2,18 +2,21 @@ package entities;
 
 public class Espace {
 
+    public int Gestionnaire_id;
     private int espace_id;
     private String name;
     private String type;
     private boolean disponibilite;
     private String taille;
+    private int gestionnaire_id;
 
-    public Espace(int espaceId, String name, String type, boolean disponibilite, String taille) {
-       this.espace_id = espaceId;
+
+    public Espace( String name, String type, boolean disponibilite, String taille ,int gestionnaire_id) {
         this.name = name;
         this.type = type;
         this.disponibilite = disponibilite;
         this.taille = taille;
+        this.gestionnaire_id = gestionnaire_id;
     }
 
 
@@ -57,6 +60,14 @@ public class Espace {
     public void setTaille(String taille) {
 
         this.taille = taille;
+    }
+
+    public int getGestionnaire_id() {
+        return gestionnaire_id;
+    }
+
+    public void setGestionnaire_id(int gestionnaire_id) {
+        this.gestionnaire_id = gestionnaire_id;
     }
 
     @Override

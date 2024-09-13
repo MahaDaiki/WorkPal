@@ -5,4 +5,5 @@ import entities.GestionnaireDespaces;
 
 public interface GestionnaireDespacesRepository {
     void register(GestionnaireDespaces GestionnaireDespaces);
+    int getGestionnaireIdByUserId(int userId);
 }

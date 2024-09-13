@@ -50,5 +50,21 @@ public class GestionnaireDespacesRepositoryImpl implements GestionnaireDespacesR
         }
 
     }
+
+    @Override
+    public int getGestionnaireIdByUserId(int userId) {
+        String query = "SELECT gestionnaire_id FROM gestionnaire_despaces WHERE user_id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, userId);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("gestionnaire_id");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
+}
 
