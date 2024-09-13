@@ -83,9 +83,11 @@ public class EspaceManagementTest {
         String type = scanner.nextLine();
         System.out.println("Enter Espace Size: ");
         String taille = scanner.nextLine();
+        System.out.println("Enter price: ");
+        int prix = scanner.nextInt();
 
 
-        Espace newEspace = new Espace(0,name, type, true, taille, gestionnaireId);
+        Espace newEspace = new Espace(0,name, type, true, taille, prix ,gestionnaireId);
 
         if (espaceService.addEspace(newEspace, gestionnaireId)) {
             System.out.println("Espace added successfully.");
@@ -103,7 +105,7 @@ public class EspaceManagementTest {
             System.out.println("Invalid selection.");
             return;
         }
-        System.out.println(selectedEspace);
+//        System.out.println(selectedEspace);
         Espace espaceToModify = espaces.get(selectedEspace - 1);
 
         System.out.println("Enter new name (current: " + espaceToModify.getName() + "): ");
@@ -112,10 +114,13 @@ public class EspaceManagementTest {
         String newType = scanner.nextLine();
         System.out.println("Enter new size (current: " + espaceToModify.getTaille() + "): ");
         String newSize = scanner.nextLine();
+        System.out.println("Enter new size (current: " + espaceToModify.getPrix() + "): ");
+       int newPrice = scanner.nextInt();
 
         espaceToModify.setName(newName);
         espaceToModify.setType(newType);
         espaceToModify.setTaille(newSize);
+        espaceToModify.setPrix(newPrice);
 
         if (espaceService.updateEspace(espaceToModify, gestionnaireId)) {
             System.out.println("Espace updated successfully.");

@@ -9,15 +9,17 @@ public class Espace {
     private boolean disponibilite;
     private String taille;
     private int gestionnaire_id;
+    private int prix;
 
 
-    public Espace(int espace_id , String name, String type, boolean disponibilite, String taille ,int gestionnaire_id) {
+    public Espace(int espace_id , String name, String type, boolean disponibilite, String taille ,int gestionnaire_id, int prix) {
         this.espace_id = espace_id;
         this.name = name;
         this.type = type;
         this.disponibilite = disponibilite;
         this.taille = taille;
         this.gestionnaire_id = gestionnaire_id;
+        this.prix = prix;
     }
 
 
@@ -70,7 +72,13 @@ public class Espace {
     public void setGestionnaire_id(int gestionnaire_id) {
         this.gestionnaire_id = gestionnaire_id;
     }
+    public int getPrix() {
+        return prix;
+    }
 
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
     @Override
     public String toString() {
         return "Espace{" +
@@ -79,6 +87,9 @@ public class Espace {
                 ", type='" + type + '\'' +
                 ", disponibilite=" + disponibilite +
                 ", taille='" + taille + '\'' +
+                ", prix=" + prix +
                 '}';
     }
+
+
 }
