@@ -63,12 +63,11 @@ public class SuplService {
 
     @Override
     public String toString() {
-        return "SuplService{" +
-                "suplservice_id=" + suplservice_id +
-                ", type='" + type + '\'' +
+        return
+                 suplservice_id +
+                "_ type='" + type + '\'' +
                 ", details='" + details + '\'' +
-                ", prix='" + prix + '\'' +
-                '}';
+                ", prix='" + prix + '\'' ;
     }
 
 
