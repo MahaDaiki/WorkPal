@@ -8,7 +8,9 @@ public class SuplService {
     private int prix;
     private int gestionnaire_id;
 
-    public SuplService(String type, String details, int prix , int gestionnaire_id) {
+    public SuplService(int suplservice_id,String type, String details, int prix, int gestionnaire_id) {
+        this.suplservice_id = suplservice_id;
+
         this.type = type;
         this.details = details;
         this.prix = prix;
@@ -39,6 +41,7 @@ public class SuplService {
     public void setDetails(String details) {
         this.details = details;
     }
+
     public int getPrix() {
         return prix;
     }
@@ -46,6 +49,7 @@ public class SuplService {
     public void setPrix(int prix) {
         this.prix = prix;
     }
+
     public int getGestionnaire_id() {
         return gestionnaire_id;
     }
@@ -53,15 +57,25 @@ public class SuplService {
     public void setGestionnaire_id(int gestionnaire_id) {
         this.gestionnaire_id = gestionnaire_id;
     }
+
+
+    public int getPrix() {
+        return prix;
+    }
+
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
+
     @Override
     public String toString() {
         return "SuplService{" +
                 "suplservice_id=" + suplservice_id +
                 ", type='" + type + '\'' +
                 ", details='" + details + '\'' +
+                ", prix='" + prix + '\'' +
                 '}';
     }
-
 
 
 }
