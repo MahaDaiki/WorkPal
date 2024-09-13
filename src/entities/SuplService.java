@@ -5,10 +5,12 @@ public class SuplService {
     private int suplservice_id;
     private String type;
     private String details;
+    private int prix;
 
-    public SuplService(String type, String details) {
+    public SuplService(String type, String details, int prix) {
         this.type = type;
         this.details = details;
+        this.prix = prix;
     }
 
 
@@ -35,7 +37,13 @@ public class SuplService {
     public void setDetails(String details) {
         this.details = details;
     }
+    public int getPrix() {
+        return prix;
+    }
 
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
     @Override
     public String toString() {
         return "SuplService{" +
@@ -44,4 +52,6 @@ public class SuplService {
                 ", details='" + details + '\'' +
                 '}';
     }
+
+
 }
