@@ -117,18 +117,23 @@ public class AuthentificationTest {
         while (true) {
             System.out.println("----Member Menu:----");
             System.out.println("1. Manage Espace");
-            System.out.println("2. Logout");
+            System.out.println("2. Manage Supll Services");
+            System.out.println("3. Logout");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
-
+            int userId = authService.getCurrentUser().getUser_id();
+            int gestionnaireId = gestionnaireRepo.getGestionnaireIdByUserId(userId);
             switch (choice) {
                 case 1:
-                    int userId = authService.getCurrentUser().getUser_id();
-                    int gestionnaireId = gestionnaireRepo.getGestionnaireIdByUserId(userId);
+                    ;
              EspaceManagementTest.displayEspaceMenu(gestionnaireId);;
                     break;
-                case 2:
+                case 2 :
+
+                  SuplserviceTest.displaySuplServiceMenu(gestionnaireId);;
+                     break;
+                case 3:
                     System.out.println("Logging out...");
 //                    authService.logout();
                     return;

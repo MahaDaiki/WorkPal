@@ -38,10 +38,9 @@ public class Payment {
 
     @Override
     public String toString() {
-        return "Payment{" +
-                "payment_id=" + payment_id +
+        return "Payment" +
+                  payment_id +
                 ", total=" + total +
-                ", reservation_id=" + reservation_id +
-                '}';
+                ", reservation_id=" + reservation_id ;
     }
 }

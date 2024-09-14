@@ -1,12 +1,14 @@
 package entities;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Reservation {
 
     private int reservation_id;
-    private Timestamp date_debut;
-    private Timestamp date_fin;
+    private LocalDateTime date_debut;
+    private LocalDateTime date_fin;
     private int prix_total;
     private int membre_id;
     private int espace_id;
@@ -16,7 +18,7 @@ public class Reservation {
     private boolean favoris;
 
 
-    public Reservation(Timestamp date_debut, Timestamp date_fin, int prix_total,int membre_id, int espace_id, int suplservice_id, int rating, String note, boolean favoris) {
+    public Reservation(LocalDateTime date_debut, LocalDateTime date_fin, int prix_total,int membre_id, int espace_id, int suplservice_id, int rating, String note, boolean favoris) {
         this.date_debut = date_debut;
         this.date_fin = date_fin;
         this.prix_total = prix_total;
@@ -37,19 +39,19 @@ public class Reservation {
         this.reservation_id = reservation_id;
     }
 
-    public Timestamp getDate_debut() {
+    public LocalDateTime getDate_debut() {
         return date_debut;
     }
 
-    public void setDate_debut(Timestamp date_debut) {
+    public void setDate_debut(LocalDateTime date_debut) {
         this.date_debut = date_debut;
     }
 
-    public Timestamp getDate_fin() {
+    public LocalDateTime getDate_fin() {
         return date_fin;
     }
 
-    public void setDate_fin(Timestamp date_fin) {
+    public void setDate_fin(LocalDateTime date_fin) {
         this.date_fin = date_fin;
     }
 
@@ -110,8 +112,7 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return "Reservation{" +
-                "reservation_id=" + reservation_id +
+        return "Reservation "  + reservation_id +
                 ", date_debut=" + date_debut +
                 ", date_fin=" + date_fin +
                 ", membre_id=" + membre_id +
@@ -119,8 +120,7 @@ public class Reservation {
                 ", suplservice_id=" + suplservice_id +
                 ", rating=" + rating +
                 ", note='" + note + '\'' +
-                ", favoris=" + favoris +
-                '}';
+                ", favoris=" + favoris ;
     }
 
 
