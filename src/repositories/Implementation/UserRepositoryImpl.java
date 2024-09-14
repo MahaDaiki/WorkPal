@@ -6,10 +6,9 @@ import enums.Role;
 import repositories.Interface.UserRepository;
 import utils.InputValidator;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository {
 
@@ -87,5 +86,51 @@ public class UserRepositoryImpl implements UserRepository {
             return false;  // Error during deletion
         }
     }
+    @Override
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+        String query = "SELECT * FROM users";
+        try (Statement stmt = connection.createStatement()) {
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                User user = new User(
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("phone_number"),
+                        rs.getString("address"),
+                        rs.getString("password"),
+                        Role.valueOf(rs.getString("role"))
+                );
+                user.setUser_id(rs.getInt("user_id"));
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+    @Override
+    public User getUserById(int userId) {
+        String query = "SELECT * FROM users WHERE user_id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new User(
+                        rs.getString("name"),
+                        rs.getString("email"),
+                        rs.getString("phone_number"),
+                        rs.getString("address"),
+                        rs.getString("password"),
+                        Role.valueOf(rs.getString("role").toUpperCase())  // Assuming role is stored as string
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 }

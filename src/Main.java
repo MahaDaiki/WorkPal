@@ -1,4 +1,5 @@
 import config.DatabaseConnection;
+import test.AuthentificationTest;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -8,13 +9,15 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) {
         // Get the connection instance
-        Connection connection = DatabaseConnection.getInstance().getConnection();
+//        Connection connection = DatabaseConnection.getInstance().getConnection();
 
         // Check if the connection is successful
-        if (connection != null) {
-            System.out.println("Database connection is successful!");
-        } else {
-            System.out.println("Failed to connect to the database.");
-        }
+//        if (connection != null) {
+//            System.out.println("Database connection is successful!");
+//        } else {
+//            System.out.println("Failed to connect to the database.");
+//        }
+
+        AuthentificationTest.menu();
     }
     }
