@@ -1,5 +1,8 @@
 package utils;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 public class InputValidator {
 
 
@@ -36,6 +39,10 @@ public class InputValidator {
     // password length
     public boolean validatePassword(String password) {
         return password != null && password.length() >= 6;
+    }
+
+    public boolean isValidDateRange(LocalDateTime date_debut, LocalDateTime date_fin) {
+        return date_fin.isAfter(date_debut);
     }
 
 }

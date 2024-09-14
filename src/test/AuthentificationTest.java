@@ -151,7 +151,8 @@ public class AuthentificationTest {
         while (true) {
             System.out.println("Member Menu:");
             System.out.println("1. Modify Profile");
-            System.out.println("2. Logout");
+            System.out.println("2. Reservation");
+            System.out.println("3. Logout");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -161,6 +162,9 @@ public class AuthentificationTest {
                     MemberManagementTest.modifyProfile();
                     break;
                 case 2:
+                    ReservationTest.manageReservations();
+                    break;
+                case 3:
                     System.out.println("Logging out...");
 //                    authService.logout();
                     return;

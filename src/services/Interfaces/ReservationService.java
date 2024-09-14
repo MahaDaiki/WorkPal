@@ -1,11 +1,10 @@
-package repositories.Interface;
+package services.Interfaces;
 
 import entities.Reservation;
 
 import java.util.List;
 
-public interface ReservationRepository {
-
+public interface ReservationService {
     void createReservation(Reservation reservation);
     Reservation getReservationById(int reservationId);
     List<Reservation> getAllReservations();

@@ -7,6 +7,7 @@ import utils.InputValidator;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MemberRepositoryimpl implements MemberRepository {
@@ -49,5 +50,22 @@ public class MemberRepositoryimpl implements MemberRepository {
 
     }
 
+    @Override
+    public int getMemberIdByUserId(int userId) {
+        String query = "SELECT member_id FROM members WHERE user_id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, userId);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("member_id");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
+    }
+
+
 
