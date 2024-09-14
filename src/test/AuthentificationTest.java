@@ -19,30 +19,33 @@ public class AuthentificationTest {
     private static final Scanner scanner = new Scanner(System.in);
     private static final GestionnaireDespacesService gestionnaireRepo = new GestionnairedespaceServiceImpl();
     public static void main(String[] args) {
+        menu();
 
-        while (true) {
-            System.out.println("1. Register Member");
-            System.out.println("2. Login");
-            System.out.println("3. Exit");
-            System.out.print("Choose an option: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+        }
+        public static void menu() {
+            while (true) {
+                System.out.println("1. Register Member");
+                System.out.println("2. Login");
+                System.out.println("3. Exit");
+                System.out.print("Choose an option: ");
+                int choice = scanner.nextInt();
+                scanner.nextLine();
 
-            switch (choice) {
-                case 1:
-                    registerMember();
-                    break;
-                case 2:
-                    login();
-                    break;
-                case 3:
-                    System.out.println("Exiting...");
-                    return;
-                default:
-                    System.out.println("Invalid option. Please try again.");
+                switch (choice) {
+                    case 1:
+                        registerMember();
+                        break;
+                    case 2:
+                        login();
+                        break;
+                    case 3:
+                        System.out.println("Exiting...");
+                        return;
+                    default:
+                        System.out.println("Invalid option. Please try again.");
+                }
             }
         }
-    }
 
     private static void registerMember() {
         System.out.print("Enter name: ");
@@ -107,6 +110,29 @@ public class AuthentificationTest {
     private static void displayAdminMenu() {
 
         System.out.println("Admin Menu:");
+        System.out.println("1. Update a User");
+        System.out.println("2. Delete a User");
+        System.out.println("3. Exit");
+        System.out.print("Choose an option: ");
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1:
+                AdminTest.updateUser();
+                break;
+            case 2:
+                AdminTest.deleteUser();
+                break;
+
+            case 3:
+
+                System.out.println("Exiting...");
+                break;
+            default:
+                System.out.println("Invalid option. Please try again.");
+        }
+
+
 
     }
 
