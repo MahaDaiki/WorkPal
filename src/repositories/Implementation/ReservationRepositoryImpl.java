@@ -145,10 +145,10 @@ public class ReservationRepositoryImpl implements ReservationRepository {
 
     @Override
     public void updateReservation(Reservation reservation) {
-        String updateQuery = "UPDATE reservations SET date_fin = ?, prix_total = ?, espace_id = ?, suplservice_id = ? WHERE reservation_id = ?";
+        String updateQuery = "UPDATE reservations SET date_fin = ?,  espace_id = ?, suplservice_id = ? WHERE reservation_id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(updateQuery)) {
             stmt.setTimestamp(1, Timestamp.valueOf(reservation.getDate_fin()));
-            stmt.setInt(2, reservation.getPrix_total());
+
             stmt.setInt(3, reservation.getEspace_id());
 
             if (reservation.getSuplservice_id().isPresent()) {

@@ -190,11 +190,10 @@ public class ReservationTest {
         Reservation reservation = reservationService.getReservationById(reservationId);
         System.out.print("Enter new Date Fin (YYYY-MM-DD): ");
         String dateFin = scanner.next();
-        System.out.print("Enter new total price: ");
-        int prixTotal = scanner.nextInt();
+
 
         reservation.setDate_fin(LocalDateTime.parse(dateFin + "T00:00:00"));
-        reservation.setPrix_total(prixTotal);
+
 
         reservationService.updateReservation(reservation);
         System.out.println("Reservation updated successfully.");
