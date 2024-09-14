@@ -3,6 +3,7 @@ package entities;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 public class Reservation {
 
@@ -12,13 +13,13 @@ public class Reservation {
     private int prix_total;
     private int membre_id;
     private int espace_id;
-    private int suplservice_id;
-    private int rating;
-    private String note;
+    private Optional<Integer> suplservice_id = Optional.empty();  // Use Optional for nullable field
+    private Optional<Integer> rating = Optional.empty();  // Use Optional for nullable field
+    private Optional<String> note = Optional.empty();
     private boolean favoris;
 
 
-    public Reservation(LocalDateTime date_debut, LocalDateTime date_fin, int prix_total,int membre_id, int espace_id, int suplservice_id, int rating, String note, boolean favoris) {
+    public Reservation(LocalDateTime date_debut, LocalDateTime date_fin, int prix_total,int membre_id, int espace_id, Optional<Integer> suplservice_id, Optional<Integer> rating, Optional<String> note, boolean favoris) {
         this.date_debut = date_debut;
         this.date_fin = date_fin;
         this.prix_total = prix_total;
@@ -71,27 +72,27 @@ public class Reservation {
         this.espace_id = espace_id;
     }
 
-    public int getSuplservice_id() {
+    public Optional<Integer> getSuplservice_id() {
         return suplservice_id;
     }
 
-    public void setSuplservice_id(int suplservice_id) {
+    public void setSuplservice_id(Optional<Integer> suplservice_id) {
         this.suplservice_id = suplservice_id;
     }
 
-    public int getRating() {
+    public Optional<Integer> getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Optional<Integer> rating) {
         this.rating = rating;
     }
 
-    public String getNote() {
+    public Optional<String> getNote() {
         return note;
     }
 
-    public void setNote(String note) {
+    public void setNote(Optional<String> note) {
         this.note = note;
     }
 

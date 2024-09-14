@@ -14,6 +14,8 @@ public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository  = new MemberRepositoryimpl();
 
 
-
-
+    @Override
+    public int getMemberIdByUserId(int userId) {
+        return memberRepository.getMemberIdByUserId(userId);
+    }
 }
